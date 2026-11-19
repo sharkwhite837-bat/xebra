@@ -27,6 +27,8 @@ Over HTTP this is [`GET /v1/transfers/{chain}/{tx}`](/docs/api/transfers/get-tra
 `pending` and `delivering` change on their own. `delivered`, `needs_claim` and `failed` do not change
 until someone acts.
 
+Before waiting, confirm the burn succeeded on the source chain (check the transaction on the source chain's [block explorer](https://stellar.expert/explorer/public)). A hash Circle has never seen stays `pending`; it is not a 404.
+
 When a transfer from Stellar or an EVM chain needs a claim, `claimUrl` links to the claim page on
 xebra.exchange, where the recipient (or anyone) can finish it with their own wallet. For Sui transfers
 `claimUrl` is null; finish them through the API.
